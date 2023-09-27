@@ -1,0 +1,51 @@
+<div class="m-5">
+  <form [formGroup]="salarieForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" formControlName="id" id="id" class="form-control" hidden />
+      <input class="form-control" formControlName="nom" id="nom" type="text" />
+      <div *ngIf="salarieForm.get('nom')?.hasError('required') && salarieForm.get('nom')?.touched" class="text-danger">
+        Nom is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prenom">Prénom:</label>
+      <input class="form-control" formControlName="prenom" id="prenom" type="text" />
+      <div *ngIf="salarieForm.get('prenom')?.hasError('required') && salarieForm.get('prenom')?.touched" class="text-danger">
+        Prénom is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input class="form-control" formControlName="email" id="email" type="email" />
+      <div *ngIf="salarieForm.get('email')?.hasError('required') && salarieForm.get('email')?.touched" class="text-danger">
+        Email is required.
+      </div>
+      <div *ngIf="salarieForm.get('email')?.hasError('email')" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Date de Naissance:</label>
+      <input class="form-control" formControlName="birthDate" id="birthDate" type="date" />
+      <div *ngIf="salarieForm.get('birthDate')?.hasError('required') && salarieForm.get('birthDate')?.touched" class="text-danger">
+        Date de Naissance is required.
+      </div>
+    </div>
+
+<div class="form-group">
+  <label for="client">Client:</label>
+  <select class="form-control" formControlName="client" id="client" readonly>
+    <option value="" disabled>Select a client</option>
+    <option *ngFor="let client of clients$ | async" [value]="client.id">{{ client.nom }}</option>
+  </select>
+</div>
+
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="salarieForm.invalid">Submit</button>
+  </form>
+</div>

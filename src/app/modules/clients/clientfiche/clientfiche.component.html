@@ -1,0 +1,28 @@
+<div class="m-5">
+  <h6> {{modif ? 'Ajouter Client' : 'Modifier Client' }} </h6>
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" formControlName="id" id="id" class="form-control" hidden />
+      <input type="text" formControlName="nom"   id="nom" class="form-control" />
+      <div *ngIf="clientForm.get('nom')?.hasError('required') && clientForm.get('nom')?.touched" class="text-danger">
+        Le nom est requis.
+      </div>
+    </div>
+  
+    <!-- Siret Field -->
+    <div class="form-group">
+      <label for="siret">Siret</label>
+      <input type="text" formControlName="siret" 
+        id="siret" class="form-control" />
+      <div *ngIf="clientForm.get('siret')?.hasError('required') && clientForm.get('siret')?.touched" class="text-danger">
+        Le Siret est requis.
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </form>
+  
+</div> 

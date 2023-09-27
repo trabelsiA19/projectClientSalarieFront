@@ -1,0 +1,11 @@
+
+.custom-overlay {
+  background: rgba(248, 3, 3, 0.6); /* Semi-transparent black overlay */
+}
+
+/* Center the modal content vertically and horizontally */
+.mat-dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,35 @@
+.btndelete {
+  background-color: red;
+  border-radius: 12px;
+  color: white;
+  width: 50px;
+  border: none; 
+  padding: 4px;
+  font-size: 10px; 
+  cursor: pointer; 
+  outline: none; 
+  text-align: center;
+  transition: background-color 0.3s; 
+}
+
+.btndelete:hover {
+  background-color: darkred; 
+}
+
+.btndedit {
+  background-color: rgb(27, 27, 214);
+  border-radius: 12px;
+  color: white;
+  width: 50px;
+  border: none; 
+  text-align: center;
+  padding: 4px;
+  font-size: 10px;
+  cursor: pointer; 
+  outline: none; 
+  transition: background-color 0.3s; 
+}
+
+.btndedit:hover {
+  background-color: darkblue; 
+}
