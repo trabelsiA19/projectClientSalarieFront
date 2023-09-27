@@ -1,4 +1,5 @@
 <div class="m-5">
+  <h6> {{modif ? 'Ajouter Salarie' : 'Modifier Salarie' }} </h6>
   <form [formGroup]="salarieForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nom">Nom:</label>
@@ -38,9 +39,9 @@
 
 <div class="form-group">
   <label for="client">Client:</label>
-  <select class="form-control" formControlName="client" id="client" readonly>
+  <select class="form-control" formControlName="client" id="client" >
     <option value="" disabled>Select a client</option>
-    <option *ngFor="let client of clients$ | async" [value]="client.id">{{ client.nom }}</option>
+    <option  [disabled]="disableSelect"  *ngFor="let client of clients$ | async" [value]="client.id">{{ client.nom }}</option>
   </select>
 </div>
 

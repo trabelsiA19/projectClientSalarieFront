@@ -36,7 +36,7 @@ export class ClientService {
 
   // Met à jour les informations d'un client en utilisant un objet Client
   updateClient(client: Client): Observable<any> {
-    console.log(client);
+
     return this.http.put<any>(this.baseUrl + "/" + client.id, client);
   }
 }

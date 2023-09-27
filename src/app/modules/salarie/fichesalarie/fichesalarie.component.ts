@@ -22,7 +22,7 @@ export class FichesalarieComponent implements OnInit {
   clients$: any;
   modif: boolean;
   salarie: Salarie = new Salarie();
-
+  disableSelect:boolean=false
   constructor(
 
     public dialogRef: MatDialogRef<FichesalarieComponent>,
@@ -54,13 +54,13 @@ export class FichesalarieComponent implements OnInit {
       this.salarieForm.get("prenom")?.setValue(this.data.salarie.prenom)
       this.salarieForm.get("email")?.setValue(this.data.salarie.email)
       this.salarieForm.get("birthDate")?.setValue(this.data.salarie.birthDate)
-      console.log(this.data.salarie.client.id)
+      this.disableSelect = true;
       this.clients$.subscribe((clients: any) => {
 
         clients.forEach((element: any) => {
 
           if (element['id'] === this.data.salarie.client.id) {
-            console.log(element)
+
             this.salarieForm.get('client')?.setValue(element.id);
 
           }
